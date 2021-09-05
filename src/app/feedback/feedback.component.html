@@ -1,0 +1,48 @@
+<div class="b-modal">
+    <div class="b-modal_title">
+        <h2>Contact support</h2>
+    </div>
+    <form (ngSubmit)="send()" name="form" [formGroup]="supportForm" *ngIf="!messageSended && !loader">
+        <div class="b-inputs">
+            <div class="b-form-group">
+                <input type="text" 
+                placeholder="Ваше имя"
+                name="name"
+                formControlName="memberName"
+                required>
+                <span class="error" *ngIf="isControlInvalid('memberName')">
+                    Поле обязательно для заполнения
+                </span>
+            </div>
+            <div class="b-form-group">
+                <input type="text"
+                placeholder="Ваш email"
+                name="email"
+                formControlName="memberEmail"
+                required
+                email>
+                <span class="error" *ngIf="isControlInvalid('memberEmail')">
+                    Поле обязательно для заполнения и содержимое должно являться почтой
+                </span>
+            </div>
+        </div>
+    
+        <div class="b-form-group">
+            <textarea rows="10"  placeholder="Текст" name="text" formControlName="message" required></textarea>
+            <span class="error" *ngIf="isControlInvalid('message')">
+                Поле обязательно для заполнения
+            </span>
+        </div>
+        
+        <div class="b-modal_footer">
+            <button (click)="cancel()">Cancel</button>
+            <button type="submit" [disabled]="!supportForm.valid">Send</button>
+            
+        </div>
+    </form>
+    <span class="loader" *ngIf="loader && !messageSended"></span>
+    <div *ngIf="messageSended">
+        Ваше сообщение успешно отправлено!
+    </div>
+</div>
+

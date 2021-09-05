@@ -1,0 +1,16 @@
+<div>
+  <button (click)="feedback()" class="feedback-btn">Send Feedback</button>
+  <div class="b-newsblock" >
+    <div class="loader" *ngIf="loader"></div>
+    <ul class="b-newsblock_list b-list" *ngIf="!loader">
+      <li class="b-list_element b-news" *ngFor="let li of list; trackBy: trackByFn">
+        <div class="b-news_date">
+          {{ li.date | date: 'yy-M-yyy' }}
+        </div>
+        <h3 class="b-news_title" (click)="openNews(li)">
+          {{ li.title }}
+        </h3>
+      </li>
+    </ul>
+  </div>
+</div>

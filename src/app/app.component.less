@@ -1,0 +1,105 @@
+@lightGreen: rgb(189, 242, 219);
+
+h3 {
+    font-size: 1.17em;
+}
+
+.b-newsblock {
+    margin: 40px 300px 100px;
+    min-width: 500px;
+    // width: 80%;
+}
+
+.b-list {
+    border: 3px solid black;
+    box-sizing: content-box;
+    padding: 5px;
+    border-radius: 5px;
+    &_element {
+        background-color: @lightGreen;
+        list-style-type: none;
+        border-radius: 3px;
+        display: flex;
+        margin-bottom: 15px;
+        align-items: center;
+        padding-left: 15px;
+        min-height: 50px;
+    }
+    &_element h3 {
+        transition: font-size 0.3s ease-out;
+    }
+    &_element:hover h3 {
+        font-size: 1.3em;
+        cursor: pointer;
+        transition: font-size 0.3s ease-in;
+    }
+}
+
+.b-news {
+    &_date {
+        min-width: 100px;
+        width: 20%;
+    }
+    &_title {
+        width: 100%;
+    }
+
+}
+
+.feedback-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+.loader {
+    background-image: url('../assets/loader.gif');
+    background-size: contain;
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+}
+
+.feedback-btn {
+    border: 1px solid black;
+    &:hover {
+        background-color: #efefef;
+    }
+}
+
+// Формы, валидация
+input, textarea {
+    background-color: #efefef;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    &:focus-visible {
+        border: none;
+        outline: none;
+    }
+}
+
+input, textarea {
+    &.ng-touched.ng-invalid ~ span {
+        color: red;
+        padding-left: 10px;
+    }
+}
+
+.b-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+    color: black;
+    background-color: transparent;
+}
+
+button:disabled {
+    background-color: lightgray;
+    color: gray;
+}

@@ -9,6 +9,7 @@ import { ModalComponent } from './modal/modal.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainService } from './service/main.service';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { MainService } from './service/main.service';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [NgbActiveModal, FormBuilder, MainService ],
+  providers: [NgbActiveModal, FormBuilder, MainService, {provide: APP_BASE_HREF, useValue: '/'} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

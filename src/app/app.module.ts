@@ -4,8 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbActiveModal, NgbModalRef, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ModalComponent } from './modal/modal.component';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainService } from './service/main.service';
@@ -14,7 +13,6 @@ import { APP_BASE_HREF } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
-    ModalComponent,
     FeedbackComponent,
   ],
   imports: [

@@ -3,7 +3,6 @@ import { from, Observable, pipe } from 'rxjs';
 import { finalize, tap } from 'rxjs/operators';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalComponent } from './modal/modal.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { MainService } from './service/main.service';
 
@@ -36,11 +35,6 @@ export class AppComponent implements OnInit {
         tap((data) => this.list = data, untilDestroyed(this)),
         finalize(() => this.loader = false))
         .subscribe();
-  }
-
-  openNews(news): void {
-    const modalRef = this.modalService.open(ModalComponent, { size: 'lg' });
-    modalRef.componentInstance.news = news;
   }
 
   feedback(): void {

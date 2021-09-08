@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import { Observable } from 'rxjs';
-import { finalize, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Injectable()
 export class MainService {
@@ -37,14 +37,5 @@ export class MainService {
             appVersion,
             message: form.value.message,
         }, { headers, observe: 'response' });
-            // .pipe(
-                // untilDestroyed(this)
-            // )
-            // .subscribe(resp => {
-            //     if (resp.status === 201) {
-            //         this.messageSended = true;
-            //         setTimeout(this.activeModal.close, 5000);
-            //     }
-            // });
     }
 }

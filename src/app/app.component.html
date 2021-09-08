@@ -1,15 +1,18 @@
-<div>
+<div class="b-page">
   <button (click)="feedback()" class="feedback-btn">Send Feedback</button>
-  <div class="b-newsblock" >
+  <div class="b-newsblock">
+    <h2 class="b-newsblock_header">What's new in Planyway</h2>
     <div class="loader" *ngIf="loader"></div>
     <ul class="b-newsblock_list b-list" *ngIf="!loader">
       <li class="b-list_element b-news" *ngFor="let li of list; trackBy: trackByFn">
         <div class="b-news_date">
-          {{ li.date | date: 'yy-M-yyy' }}
+          {{ li.date | date: 'dd MMM yyy' }}
         </div>
-        <h3 class="b-news_title" (click)="openNews(li)">
+        <h2 class="b-news_title">
           {{ li.title }}
-        </h3>
+        </h2>
+        <div class="b-new_content" [innerHTML]="li.content">
+        </div>
       </li>
     </ul>
   </div>

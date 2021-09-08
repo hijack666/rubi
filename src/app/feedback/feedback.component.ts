@@ -1,9 +1,8 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { MainService } from '../service/main.service';
 
@@ -48,7 +47,6 @@ export class FeedbackComponent implements OnInit {
     }
 
     sendData(url: string): void {
-        const headers = new HttpHeaders({ 'x-ms-blob-type': 'BlockBlob' });
         this.mainService.sendData(url, this.supportForm, this.appType, this.appVersion)
             .pipe(untilDestroyed(this))
             .subscribe(resp => {
